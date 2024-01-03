@@ -24,12 +24,20 @@ qsort (x : xs) = qsort smaller ++ [x] ++ qsort larger
     smaller = [a | a <- xs, a <= x]
     larger = [b | b <- xs, b > x]
 
--- qsort but in reverse order
+-- quicksort but in reverse order
 qsortrev :: [Integer] -> [Integer]
 qsortrev [] = []
 qsortrev (x : xs) = qsortrev larger ++ [x] ++ qsortrev smaller
   where
     smaller = [a | a <- xs, a <= x]
+    larger = [b | b <- xs, b > x]
+
+-- quicksort but disposes duplicate entries
+qsortuniq :: [Integer] -> [Integer]
+qsortuniq [] = []
+qsortuniq (x : xs) = qsortuniq smaller ++ [x] ++ qsortuniq larger
+  where
+    smaller = [a | a <- xs, a < x]
     larger = [b | b <- xs, b > x]
 
 main = do
@@ -60,3 +68,8 @@ main = do
     -- sort a list in reversed order
     let sortedReverse = qsortrev unsorted
     putStrLn $ "Reverse Sorted List: " ++ show sortedReverse
+
+    -- sort a list of numbers
+    let anotherUnsorted = [2, 2, 3, 1, 1]
+    let otherSorted = qsortuniq anotherUnsorted
+    putStrLn $ "Unique sorted List: " ++ show otherSorted
