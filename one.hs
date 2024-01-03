@@ -24,6 +24,13 @@ qsort (x : xs) = qsort smaller ++ [x] ++ qsort larger
     smaller = [a | a <- xs, a <= x]
     larger = [b | b <- xs, b > x]
 
+qsortrev :: [Integer] -> [Integer]
+qsortrev [] = []
+qsortrev (x : xs) = qsortrev larger ++ [x] ++ qsortrev smaller
+  where
+    smaller = [a | a <- xs, a <= x]
+    larger = [b | b <- xs, b > x]
+
 main = do
     -- faculty of 5
     let facResult = fac 5
@@ -48,3 +55,7 @@ main = do
     let unsorted = [3, 5, 1, 4, 2]
     let sorted = qsort unsorted
     putStrLn $ "Sorted List: " ++ show sorted
+
+    -- sort a list in reversed order
+    let sortedReverse = qsortrev unsorted
+    putStrLn $ "Reverse Sorted List: " ++ show sortedReverse
