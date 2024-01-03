@@ -17,21 +17,21 @@ doubleNum :: (Num a) => a -> a
 doubleNum a = 2 * a
 
 main = do
-  -- faculty of 5
-  let facResult = fac 5
-  putStrLn $ "Faculty of 5: " ++ show facResult
+    -- faculty of 5
+    let facResult = fac 5
+    putStrLn $ "Faculty of 5: " ++ show facResult
 
-  -- sum of a list of numbers
-  let numbers = [1, 2, 3, 4, 5]
-  let sumResult = sumList numbers
-  putStrLn $ "Sum of the list [1, 2, 3, 4, 5]: " ++ show sumResult
+    -- sum of a list of numbers
+    let numbers = [1, 2, 3, 4, 5]
+    let sumResult = sumList numbers
+    putStrLn $ "Sum of the list [1, 2, 3, 4, 5]: " ++ show sumResult
 
-  -- product of a list of numbers
-  let otherNumbers = [2, 3, 4]
-  let productResult = productList otherNumbers
-  putStrLn $ "Product of the list [2, 3, 4]: " ++ show productResult
+    -- product of a list of numbers
+    let otherNumbers = [2, 3, 4]
+    let productResult = productList otherNumbers
+    putStrLn $ "Product of the list [2, 3, 4]: " ++ show productResult
 
-  -- double a number
-  let x = 16
-  let doubleResult = doubleNum x
-  putStrLn $ "Double of 16: " ++ show doubleResult
+    -- double a number
+    let x = 16
+    let doubleResult = doubleNum x
+    putStrLn $ "Double of 16: " ++ show doubleResult
