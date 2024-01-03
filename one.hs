@@ -24,6 +24,7 @@ qsort (x : xs) = qsort smaller ++ [x] ++ qsort larger
     smaller = [a | a <- xs, a <= x]
     larger = [b | b <- xs, b > x]
 
+-- qsort but in reverse order
 qsortrev :: [Integer] -> [Integer]
 qsortrev [] = []
 qsortrev (x : xs) = qsortrev larger ++ [x] ++ qsortrev smaller
