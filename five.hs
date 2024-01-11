@@ -27,16 +27,16 @@ factors n = [x | x <- [1 .. n], n `mod` x == 0]
 perfect :: Int -> [Int]
 perfect n = [x | x <- [1 .. n], sum (init (factors x)) == x]
 
--- returns the positions of a given element in a list
+-- returns the positions of given element in a list
 positions :: (Eq a) => a -> [a] -> [Int]
 positions x xs = [i | (x', i) <- zip xs [0 ..], x == x']
 
--- given a key k and a list of key value pairs (k', v)
+-- given a key k and a list of key value pairs (k',v)
 -- it searches for all pairs where k == k'
 find :: (Eq a) => a -> [(a, b)] -> [b]
 find k t = [v | (k', v) <- t, k == k']
 
--- returns the positions of a given element in a list
+-- returns the positions of given element in a list
 -- using the find function
 positionsUsingFind :: (Eq a) => a -> [a] -> [Int]
 positionsUsingFind x xs = find x (zip xs [0 ..])
@@ -154,8 +154,8 @@ main = do
     putStrLn $ "Perfect 500: " ++ show (perfect 500)
 
     -- list comprehension and generators
-    putStrLn "List comprehension and generators:"
-    putStrLn $ "a) " ++ show [(x, y) | x <- [1, 2], y <- [3, 4]]
+    putStrLn "List comprehension and generators"
+    putStrLn $ "a) " ++ show ([(x, y) | x <- [1, 2], y <- [3, 4]])
     let list1 = [(1, y) | y <- [3 .. 4]]
     let list2 = [(2, y) | y <- [3 .. 4]]
     putStrLn $ "b) " ++ show (list1 ++ list2)
@@ -164,7 +164,7 @@ main = do
     let bools = [True, False, True, False]
     putStrLn "Positions function"
     putStrLn $ "a) " ++ show (positions False bools)
-    putStrLn $ "a) " ++ show (positionsUsingFind False bools)
+    putStrLn $ "b) " ++ show (positionsUsingFind False bools)
 
     -- scalar product
     let scalarResult = scalarProduct [1, 2, 3] [4, 5, 6]
