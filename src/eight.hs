@@ -76,6 +76,32 @@ occurs x (Node l y r) = case compare x y of
     GT -> occurs x r
     EQ -> True
 
+-- another tree data type
+-- this tree only has data in its leaves
+data Tree2 a where
+    Leaf2 :: a -> Tree2 a
+    Node2 :: (Tree2 a) -> (Tree2 a) -> Tree2 a
+
+-- returns the number of leaves for a tree
+leaves :: Tree2 a -> Int
+leaves (Leaf2 _) = 1
+leaves (Node2 l r) = leaves l + leaves r
+
+-- decides if a binary tree is balanced or not
+balanced :: Tree2 a -> Bool
+balanced (Leaf2 _) = True
+balanced (Node2 l r) =
+    abs (leaves l - leaves r) <= 1
+        && balanced l
+        && balanced r
+
+-- turns a non empty list into a balanced tree
+balance :: [a] -> Tree2 a
+balance [x] = Leaf2 x
+balance xs = Node2 (balance l) (balance r)
+  where
+    (l, r) = splitAt (length xs `div` 2) xs
+
 main = do
     -- add and mult function
     let three = int2nat 3
@@ -91,3 +117,14 @@ main = do
     -- occurs function
     let tree = Node (Node (Leaf 1) 3 (Leaf 4)) 5 (Node (Leaf 6) 7 (Leaf 9))
     putStrLn $ "occurs 4 tree: " ++ show (occurs 4 tree)
+
+    -- balanced function
+    let tree2 = Node2 (Node2 (Leaf2 1) (Leaf2 4)) (Node2 (Leaf2 6) (Leaf2 9))
+    putStrLn $ "balanced tree2: " ++ show (balanced tree2)
+    let tree3 = Node2 (Node2 (Node2 (Leaf2 1) (Leaf2 2)) (Node2 (Leaf2 3) (Leaf2 4))) (Leaf2 7)
+    putStrLn $ "balanced tree3: " ++ show (balanced tree3)
+
+    -- balance function
+    let list :: [Int] = [1, 2, 3, 4, 5]
+    let balancedTree = balance list
+    putStrLn $ "balanced balance [1,2,3,4,5]: " ++ show (balanced balancedTree)

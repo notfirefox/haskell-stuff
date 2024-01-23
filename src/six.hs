@@ -64,9 +64,7 @@ msort [] = []
 msort [a] = [a]
 msort xs = merge (msort left) (msort right)
   where
-    left = fst halves
-    right = snd halves
-    halves = splitAt (length xs `div` 2) xs
+    (left, right) = splitAt (length xs `div` 2) xs
 
 -- sum up a list of numbers
 sumNums :: (Num a) => [a] -> a
