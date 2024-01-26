@@ -102,6 +102,41 @@ balance xs = Node2 (balance l) (balance r)
   where
     (l, r) = splitAt (length xs `div` 2) xs
 
+-- expression data type
+data Expr where
+    Val :: Int -> Expr
+    Add :: Expr -> Expr -> Expr
+
+-- folde function
+folde :: (Int -> a) -> (a -> a -> a) -> Expr -> a
+folde f g (Val x) = f x
+folde f g (Add x y) = g (folde f g x) (folde f g y)
+
+-- eval function
+eval :: Expr -> Int
+eval = folde (* 1) (+)
+
+-- calculates the number of values in an expression
+size :: Expr -> Int
+size (Val x) = 1
+size (Add x y) = size x + size y
+
+-- custom maybe type
+data Maybe2 a where
+    Nothing2 :: Maybe2 a
+    Just2 :: a -> Maybe2 a
+
+-- eq instance for our custom maybe type
+instance (Eq a) => Eq (Maybe2 a) where
+    Nothing2 == Nothing2 = True
+    Just2 a == Just2 b = a == b
+    _ == _ = False
+
+-- instance (Eq a) => Eq [a] where
+--     [] == [] = True
+--     [x] == [y] = x == y
+--     (x : xs) == (y : ys) = x == y && xs == ys
+
 main = do
     -- add and mult function
     let three = int2nat 3
@@ -116,6 +151,7 @@ main = do
 
     -- occurs function
     let tree = Node (Node (Leaf 1) 3 (Leaf 4)) 5 (Node (Leaf 6) 7 (Leaf 9))
+
     putStrLn $ "occurs 4 tree: " ++ show (occurs 4 tree)
 
     -- balanced function
@@ -128,3 +164,10 @@ main = do
     let list :: [Int] = [1, 2, 3, 4, 5]
     let balancedTree = balance list
     putStrLn $ "balanced balance [1,2,3,4,5]: " ++ show (balanced balancedTree)
+
+    -- eval function
+    let expr = Add (Add (Val 2) (Val 2)) (Val 4)
+    putStrLn $ "eval expr: " ++ show (eval expr)
+
+    -- expr size function
+    putStrLn $ "size expr: " ++ show (size expr)
