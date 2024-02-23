@@ -83,70 +83,70 @@ luhn a b c d = (x + b + y + d) `mod` 10 == 0
 
 main = do
     -- halve a list into two parts
-    putStrLn $ "Halve of [1, 2, 3, 4]: " ++ show (halve [1, 2, 3, 4])
+    putStrLn $ "Halve of [1, 2, 3, 4]: " <> show (halve [1, 2, 3, 4])
 
     -- third element of list
     let numbers = [2, 4, 8, 16, 32]
-    putStrLn $ "Third entry of " ++ show numbers ++ ": "
-    putStrLn $ "a) " ++ show (thirdHeadAndTail numbers)
-    putStrLn $ "b) " ++ show (thirdListIndexing numbers)
-    putStrLn $ "c) " ++ show (thirdPatternMatching numbers)
+    putStrLn $ "Third entry of " <> show numbers <> ": "
+    putStrLn $ "a) " <> show (thirdHeadAndTail numbers)
+    putStrLn $ "b) " <> show (thirdListIndexing numbers)
+    putStrLn $ "c) " <> show (thirdPatternMatching numbers)
 
     -- safetail
-    putStrLn $ "SafeTail of " ++ show numbers ++ ": "
-    putStrLn $ "a) " ++ show (safeTailConditionalExpr numbers)
-    putStrLn $ "b) " ++ show (safeTailGuardedEquation numbers)
-    putStrLn $ "c) " ++ show (safeTailPatternMatching numbers)
+    putStrLn $ "SafeTail of " <> show numbers <> ": "
+    putStrLn $ "a) " <> show (safeTailConditionalExpr numbers)
+    putStrLn $ "b) " <> show (safeTailGuardedEquation numbers)
+    putStrLn $ "c) " <> show (safeTailPatternMatching numbers)
 
     let emptyList :: [Int] = []
-    putStrLn $ "SafeTail of " ++ show emptyList ++ ": "
-    putStrLn $ "a) " ++ show (safeTailConditionalExpr emptyList)
-    putStrLn $ "b) " ++ show (safeTailGuardedEquation emptyList)
-    putStrLn $ "c) " ++ show (safeTailPatternMatching emptyList)
+    putStrLn $ "SafeTail of " <> show emptyList <> ": "
+    putStrLn $ "a) " <> show (safeTailConditionalExpr emptyList)
+    putStrLn $ "b) " <> show (safeTailGuardedEquation emptyList)
+    putStrLn $ "c) " <> show (safeTailPatternMatching emptyList)
 
     -- disjunction
     putStrLn "Disjunctor 1:"
-    putStrLn $ "False || False: " ++ show (disjunctor1 False False)
-    putStrLn $ "False || True : " ++ show (disjunctor1 False True)
-    putStrLn $ "True  || False: " ++ show (disjunctor1 True False)
-    putStrLn $ "True  || True : " ++ show (disjunctor1 True True)
+    putStrLn $ "False || False: " <> show (disjunctor1 False False)
+    putStrLn $ "False || True : " <> show (disjunctor1 False True)
+    putStrLn $ "True  || False: " <> show (disjunctor1 True False)
+    putStrLn $ "True  || True : " <> show (disjunctor1 True True)
 
     putStrLn "Disjunctor 2:"
-    putStrLn $ "False || False: " ++ show (disjunctor2 False False)
-    putStrLn $ "False || True : " ++ show (disjunctor2 False True)
-    putStrLn $ "True  || False: " ++ show (disjunctor2 True False)
-    putStrLn $ "True  || True : " ++ show (disjunctor2 True True)
+    putStrLn $ "False || False: " <> show (disjunctor2 False False)
+    putStrLn $ "False || True : " <> show (disjunctor2 False True)
+    putStrLn $ "True  || False: " <> show (disjunctor2 True False)
+    putStrLn $ "True  || True : " <> show (disjunctor2 True True)
 
     putStrLn "Disjunctor 3:"
-    putStrLn $ "False || False: " ++ show (disjunctor3 False False)
-    putStrLn $ "False || True : " ++ show (disjunctor3 False True)
-    putStrLn $ "True  || False: " ++ show (disjunctor3 True False)
-    putStrLn $ "True  || True : " ++ show (disjunctor3 True True)
+    putStrLn $ "False || False: " <> show (disjunctor3 False False)
+    putStrLn $ "False || True : " <> show (disjunctor3 False True)
+    putStrLn $ "True  || False: " <> show (disjunctor3 True False)
+    putStrLn $ "True  || True : " <> show (disjunctor3 True True)
 
     putStrLn "Disjunctor 4:"
-    putStrLn $ "False || False: " ++ show (disjunctor4 False False)
-    putStrLn $ "False || True : " ++ show (disjunctor4 False True)
-    putStrLn $ "True  || False: " ++ show (disjunctor4 True False)
-    putStrLn $ "True  || True : " ++ show (disjunctor4 True True)
+    putStrLn $ "False || False: " <> show (disjunctor4 False False)
+    putStrLn $ "False || True : " <> show (disjunctor4 False True)
+    putStrLn $ "True  || False: " <> show (disjunctor4 True False)
+    putStrLn $ "True  || True : " <> show (disjunctor4 True True)
 
     -- conjunction
     putStrLn "Conjunction 1:"
-    putStrLn $ "False || False: " ++ show (conjunction1 False False)
-    putStrLn $ "False || True : " ++ show (conjunction1 False True)
-    putStrLn $ "True  || False: " ++ show (conjunction1 True False)
-    putStrLn $ "True  || True : " ++ show (conjunction1 True True)
+    putStrLn $ "False || False: " <> show (conjunction1 False False)
+    putStrLn $ "False || True : " <> show (conjunction1 False True)
+    putStrLn $ "True  || False: " <> show (conjunction1 True False)
+    putStrLn $ "True  || True : " <> show (conjunction1 True True)
 
     putStrLn "Conjunction 2:"
-    putStrLn $ "False || False: " ++ show (conjunction2 False False)
-    putStrLn $ "False || True : " ++ show (conjunction2 False True)
-    putStrLn $ "True  || False: " ++ show (conjunction2 True False)
-    putStrLn $ "True  || True : " ++ show (conjunction2 True True)
+    putStrLn $ "False || False: " <> show (conjunction2 False False)
+    putStrLn $ "False || True : " <> show (conjunction2 False True)
+    putStrLn $ "True  || False: " <> show (conjunction2 True False)
+    putStrLn $ "True  || True : " <> show (conjunction2 True True)
 
     -- multiplication
-    putStrLn $ "Mult(2, 3, 4): " ++ show (mult 2 3 4)
+    putStrLn $ "Mult(2, 3, 4): " <> show (mult 2 3 4)
 
     -- luhn algorithm
-    putStrLn $ "luhnDouble 3: " ++ show (luhnDouble 3)
-    putStrLn $ "luhnDouble 6: " ++ show (luhnDouble 6)
-    putStrLn $ "luhn(1, 7, 8, 4): " ++ show (luhn 1 7 8 4)
-    putStrLn $ "luhn(4, 7, 8, 3): " ++ show (luhn 4 7 8 3)
+    putStrLn $ "luhnDouble 3: " <> show (luhnDouble 3)
+    putStrLn $ "luhnDouble 6: " <> show (luhnDouble 6)
+    putStrLn $ "luhn(1, 7, 8, 4): " <> show (luhn 1 7 8 4)
+    putStrLn $ "luhn(4, 7, 8, 3): " <> show (luhn 4 7 8 3)

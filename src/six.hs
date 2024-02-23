@@ -32,7 +32,7 @@ and (b : bs) = b && Main.and bs
 concat :: [[a]] -> [a]
 concat [] = []
 concat [[]] = []
-concat (x : xs) = x ++ Main.concat xs
+concat (x : xs) = x <> Main.concat xs
 
 -- produce a list with n identical elements
 replicate :: Int -> a -> [a]
@@ -84,48 +84,48 @@ lastElem (x : xs) = lastElem xs
 
 main = do
     -- factorial function
-    putStrLn $ "fac 0: " ++ show (fac 0)
-    putStrLn $ "fac 8: " ++ show (fac 3)
-    putStrLn $ "fac (-1): " ++ show (fac (-1))
+    putStrLn $ "fac 0: " <> show (fac 0)
+    putStrLn $ "fac 8: " <> show (fac 3)
+    putStrLn $ "fac (-1): " <> show (fac (-1))
 
     -- sum down function
-    putStrLn $ "sumDown 3: " ++ show (sumDown 3)
+    putStrLn $ "sumDown 3: " <> show (sumDown 3)
 
     -- multiplication 5 3
-    putStrLn $ "2 ^ 3: " ++ show (2 Main.^ 3)
+    putStrLn $ "2 ^ 3: " <> show (2 Main.^ 3)
 
     -- euclid 6 27
-    putStrLn $ "euclid 6 27: " ++ show (euclid 6 27)
+    putStrLn $ "euclid 6 27: " <> show (euclid 6 27)
 
     -- and function
-    putStrLn $ "and True False True : " ++ show (Main.and [True, False, True])
-    putStrLn $ "and True True: " ++ show (Main.and [True, True])
+    putStrLn $ "and True False True : " <> show (Main.and [True, False, True])
+    putStrLn $ "and True True: " <> show (Main.and [True, True])
 
     -- concat function
     let numbers = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-    putStrLn $ "concat " ++ show numbers ++ ": " ++ show (Main.concat numbers)
+    putStrLn $ "concat " <> show numbers <> ": " <> show (Main.concat numbers)
 
     -- replicate function
-    putStrLn $ "replicate 3 True: " ++ show (Main.replicate 3 True)
+    putStrLn $ "replicate 3 True: " <> show (Main.replicate 3 True)
 
     -- !! operator
-    putStrLn $ "[2,4,8,16,32] !! 3: " ++ show ([2, 4, 8, 16, 32] Main.!! 3)
+    putStrLn $ "[2,4,8,16,32] !! 3: " <> show ([2, 4, 8, 16, 32] Main.!! 3)
 
     -- elem function
-    putStrLn $ "elem 8 [2,4,8,16]: " ++ show (Main.elem 8 [2, 4, 8, 16])
+    putStrLn $ "elem 8 [2,4,8,16]: " <> show (Main.elem 8 [2, 4, 8, 16])
 
     -- merge function
-    putStrLn $ "merge [2,5,6] [1,3,4]: " ++ show (merge [2, 5, 6] [1, 3, 4])
+    putStrLn $ "merge [2,5,6] [1,3,4]: " <> show (merge [2, 5, 6] [1, 3, 4])
 
     -- merge sort function
     let unsorted = [1, 9, 0, 5, 6, 7, 8, 2, 4, 3]
-    putStrLn $ "msort " ++ show unsorted ++ ": " ++ show (msort unsorted)
+    putStrLn $ "msort " <> show unsorted <> ": " <> show (msort unsorted)
 
     -- sum nums function
-    putStrLn $ "sumNums [1, 2, 3]: " ++ show (sumNums [1, 2, 3])
+    putStrLn $ "sumNums [1, 2, 3]: " <> show (sumNums [1, 2, 3])
 
     -- take elements function
-    putStrLn $ "takeElems 3 [1,2,3,4,5]: " ++ show (takeElems 3 [1, 2, 3, 4, 5])
+    putStrLn $ "takeElems 3 [1,2,3,4,5]: " <> show (takeElems 3 [1, 2, 3, 4, 5])
 
     -- last element function
-    putStrLn $ "lastElem [1,2,3,4]: " ++ show (lastElem [1, 2, 3, 4])
+    putStrLn $ "lastElem [1,2,3,4]: " <> show (lastElem [1, 2, 3, 4])

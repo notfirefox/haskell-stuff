@@ -141,33 +141,33 @@ main = do
     -- add and mult function
     let three = int2nat 3
     let twelve = int2nat 12
-    putStrLn $ "add three twelve: " ++ show (nat2int (add three twelve))
-    putStrLn $ "mult three twelve: " ++ show (nat2int (mult three twelve))
+    putStrLn $ "add three twelve: " <> show (nat2int (add three twelve))
+    putStrLn $ "mult three twelve: " <> show (nat2int (mult three twelve))
 
     -- pow function
     let two = int2nat 2
     let ten = int2nat 10
-    putStrLn $ "pow two ten: " ++ show (nat2int (pow two ten))
+    putStrLn $ "pow two ten: " <> show (nat2int (pow two ten))
 
     -- occurs function
     let tree = Node (Node (Leaf 1) 3 (Leaf 4)) 5 (Node (Leaf 6) 7 (Leaf 9))
 
-    putStrLn $ "occurs 4 tree: " ++ show (occurs 4 tree)
+    putStrLn $ "occurs 4 tree: " <> show (occurs 4 tree)
 
     -- balanced function
     let tree2 = Node2 (Node2 (Leaf2 1) (Leaf2 4)) (Node2 (Leaf2 6) (Leaf2 9))
-    putStrLn $ "balanced tree2: " ++ show (balanced tree2)
+    putStrLn $ "balanced tree2: " <> show (balanced tree2)
     let tree3 = Node2 (Node2 (Node2 (Leaf2 1) (Leaf2 2)) (Node2 (Leaf2 3) (Leaf2 4))) (Leaf2 7)
-    putStrLn $ "balanced tree3: " ++ show (balanced tree3)
+    putStrLn $ "balanced tree3: " <> show (balanced tree3)
 
     -- balance function
     let list :: [Int] = [1, 2, 3, 4, 5]
     let balancedTree = balance list
-    putStrLn $ "balanced balance [1,2,3,4,5]: " ++ show (balanced balancedTree)
+    putStrLn $ "balanced balance [1,2,3,4,5]: " <> show (balanced balancedTree)
 
     -- eval function
     let expr = Add (Add (Val 2) (Val 2)) (Val 4)
-    putStrLn $ "eval expr: " ++ show (eval expr)
+    putStrLn $ "eval expr: " <> show (eval expr)
 
     -- expr size function
-    putStrLn $ "size expr: " ++ show (size expr)
+    putStrLn $ "size expr: " <> show (size expr)

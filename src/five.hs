@@ -123,7 +123,7 @@ chisqr os es = sum [((o - e) ^ 2) / e | (o, e) <- zip os es]
 
 -- rotates a list by a given number
 rotate :: Int -> [a] -> [a]
-rotate n xs = drop n xs ++ take n xs
+rotate n xs = drop n xs <> take n xs
 
 -- cracks the caesar cipher for a given string
 crack :: String -> String
@@ -136,67 +136,67 @@ crack xs = encode (-factor) xs
 main = do
     -- sum of 100 first square numbers
     let sum1 = sum [x ^ 2 | x <- [1 .. 100]]
-    putStrLn $ "Sum 1: " ++ show sum1
+    putStrLn $ "Sum 1: " <> show sum1
 
     -- grid 1 2
-    putStrLn $ "Grid 1 2: " ++ show (grid 1 2)
+    putStrLn $ "Grid 1 2: " <> show (grid 1 2)
 
     -- square 2
-    putStrLn $ "Square 2: " ++ show (square 2)
+    putStrLn $ "Square 2: " <> show (square 2)
 
     -- replicate 3 True
-    putStrLn $ "Replicate 3 True: " ++ show (replicateValue 3 True)
+    putStrLn $ "Replicate 3 True: " <> show (replicateValue 3 True)
 
     -- pyths 10
-    putStrLn $ "Pyths 10: " ++ show (pyths 10)
+    putStrLn $ "Pyths 10: " <> show (pyths 10)
 
     -- perfect 500
-    putStrLn $ "Perfect 500: " ++ show (perfect 500)
+    putStrLn $ "Perfect 500: " <> show (perfect 500)
 
     -- list comprehension and generators
     putStrLn "List comprehension and generators"
-    putStrLn $ "a) " ++ show ([(x, y) | x <- [1, 2], y <- [3, 4]])
+    putStrLn $ "a) " <> show ([(x, y) | x <- [1, 2], y <- [3, 4]])
     let list1 = [(1, y) | y <- [3 .. 4]]
     let list2 = [(2, y) | y <- [3 .. 4]]
-    putStrLn $ "b) " ++ show (list1 ++ list2)
+    putStrLn $ "b) " <> show (list1 <> list2)
 
     -- positions function
     let bools = [True, False, True, False]
     putStrLn "Positions function"
-    putStrLn $ "a) " ++ show (positions False bools)
-    putStrLn $ "b) " ++ show (positionsUsingFind False bools)
+    putStrLn $ "a) " <> show (positions False bools)
+    putStrLn $ "b) " <> show (positionsUsingFind False bools)
 
     -- scalar product
     let scalarResult = scalarProduct [1, 2, 3] [4, 5, 6]
-    putStrLn $ "Scalar product [1,2,3] [4,5,6]: " ++ show scalarResult
+    putStrLn $ "Scalar product [1,2,3] [4,5,6]: " <> show scalarResult
 
     -- convert the letter c to an int
-    putStrLn $ "let2int c: " ++ show (let2int 'c')
+    putStrLn $ "let2int c: " <> show (let2int 'c')
 
     -- convert an int to a letter
-    putStrLn $ "int2let 2: " ++ show (int2let 2)
+    putStrLn $ "int2let 2: " <> show (int2let 2)
 
     -- (shift 3 a) and (shift (-3) c)
-    putStrLn $ "Shift 3 a: " ++ show (shift 3 'a')
-    putStrLn $ "Shift (-3) c: " ++ show (shift (-3) 'c')
+    putStrLn $ "Shift 3 a: " <> show (shift 3 'a')
+    putStrLn $ "Shift (-3) c: " <> show (shift (-3) 'c')
 
     -- encode haskell is fun
     putStrLn "Encode 3 haskell is fun:"
     print (encode 3 "haskell is fun")
 
     -- percent 5 15
-    putStrLn $ "Percent 5 15: " ++ show (percent 5 15)
+    putStrLn $ "Percent 5 15: " <> show (percent 5 15)
 
     -- freqs abbcccddddeeeee
     putStrLn "Freqs abbcccddddeeeee"
     print (freqs "abbcccddddeeeee")
 
     -- rotate 3 [1,2,3,4,5]
-    putStrLn $ "rotate 3 [1,2,3,4,5]: " ++ show (rotate 3 [1, 2, 3, 4, 5])
+    putStrLn $ "rotate 3 [1,2,3,4,5]: " <> show (rotate 3 [1, 2, 3, 4, 5])
 
     -- crack "kdvnhoo lv ixq"
-    putStrLn $ "crack \"kdvnhoo lv ixq\": " ++ show (crack "kdvnhoo lv ixq")
+    putStrLn $ "crack \"kdvnhoo lv ixq\": " <> show (crack "kdvnhoo lv ixq")
 
     -- crack "Vscd Mywzboroxcsyxc kbo ecopev"
     let secret = "Vscd Mywzboroxcsyxc kbo ecopev"
-    putStrLn $ "crack \"" ++ secret ++ "\": " ++ show (crack secret)
+    putStrLn $ "crack \"" <> secret <> "\": " <> show (crack secret)

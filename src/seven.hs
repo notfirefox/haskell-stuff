@@ -82,7 +82,7 @@ int2bin = unfold (== 0) (`mod` 2) (`div` 2)
 
 -- appends 0s if length is less than zero
 make8 :: [Bit] -> [Bit]
-make8 bits = take 8 (bits ++ repeat 0)
+make8 bits = take 8 (bits <> repeat 0)
 
 -- does the same oldChop8
 chop8 :: [Bit] -> [[Bit]]
@@ -94,7 +94,7 @@ parityBit xs = length (filter (== 1) xs) `mod` 2
 
 -- uses make8 but extends it with a parity bit
 make9 :: [Bit] -> [Bit]
-make9 bs = bits ++ [pbit]
+make9 bs = bits <> [pbit]
   where
     bits = make8 bs
     pbit = parityBit bits
@@ -164,80 +164,80 @@ main = do
     let numbers = [1, 2, 3, 4, 5, 6, 7, 8]
     let result1 = mapAndFilter (+ 10) even numbers
     let result2 = filter even (map (+ 10) numbers)
-    putStrLn $ "Result 1: " ++ show result1
-    putStrLn $ "Result 2: " ++ show result2
+    putStrLn $ "Result 1: " <> show result1
+    putStrLn $ "Result 2: " <> show result2
 
     -- all function
-    putStrLn $ "all even [1,2,3,4,5,6,7,8] : " ++ show (Main.all even numbers)
-    putStrLn $ "all even [2,4,6,8] : " ++ show (Main.all even [2, 4, 6, 8])
+    putStrLn $ "all even [1,2,3,4,5,6,7,8] : " <> show (Main.all even numbers)
+    putStrLn $ "all even [2,4,6,8] : " <> show (Main.all even [2, 4, 6, 8])
 
     -- any function
-    putStrLn $ "any even [1,2,3,4,5,6,7,8] : " ++ show (Main.any even numbers)
-    putStrLn $ "any even [1,3,7,9] : " ++ show (Main.any even [1, 3, 7, 9])
+    putStrLn $ "any even [1,2,3,4,5,6,7,8] : " <> show (Main.any even numbers)
+    putStrLn $ "any even [1,3,7,9] : " <> show (Main.any even [1, 3, 7, 9])
 
     -- take while and drop while function
     let numbers1 = [1, 3, 2, 4]
-    putStrLn $ "takeWhile odd [1,3,2,4]: " ++ show (Main.takeWhile odd numbers1)
-    putStrLn $ "dropWhile odd [1,3,2,4]: " ++ show (Main.dropWhile odd numbers1)
+    putStrLn $ "takeWhile odd [1,3,2,4]: " <> show (Main.takeWhile odd numbers1)
+    putStrLn $ "dropWhile odd [1,3,2,4]: " <> show (Main.dropWhile odd numbers1)
 
     -- mapFoldr function
     let numbers2 = [1, 2, 3]
-    putStrLn $ "mapFoldr (*2) [1,2,3]: " ++ show (mapFoldr (2 *) numbers2)
+    putStrLn $ "mapFoldr (*2) [1,2,3]: " <> show (mapFoldr (2 *) numbers2)
 
     -- filterFoldr function
     let numbers3 = [1, 2, 3, 4]
-    putStrLn $ "filterFoldr odd [1,2,3,4]: " ++ show (filterFoldr odd numbers3)
+    putStrLn $ "filterFoldr odd [1,2,3,4]: " <> show (filterFoldr odd numbers3)
 
     -- dec2int function
     let numbers4 = [2, 3, 4, 5]
-    putStrLn $ "dec2int [2,3,4,5]: " ++ show (dec2int numbers4)
+    putStrLn $ "dec2int [2,3,4,5]: " <> show (dec2int numbers4)
 
     -- int2bin function (expect: [1,0,1,1])
-    putStrLn $ "oldInt2bin 13: " ++ show (oldInt2bin 13)
-    putStrLn $ "int2bin 13: " ++ show (int2bin 13)
+    putStrLn $ "oldInt2bin 13: " <> show (oldInt2bin 13)
+    putStrLn $ "int2bin 13: " <> show (int2bin 13)
 
     -- make8 function
-    putStrLn $ "make8 [1,0,1,1]: " ++ show (make8 [1, 0, 1, 1])
+    putStrLn $ "make8 [1,0,1,1]: " <> show (make8 [1, 0, 1, 1])
 
     -- bin2int function (expect: 13)
     let bits = [1, 0, 1, 1]
-    putStrLn $ "bin2int [1,0,1,1]: " ++ show (bin2int bits)
+    putStrLn $ "bin2int [1,0,1,1]: " <> show (bin2int bits)
 
     -- chop 8 function
     let bits = [1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1]
-    putStrLn $ "oldChop8: " ++ show (oldChop8 bits)
-    putStrLn $ "chop8: " ++ show (chop8 bits)
+    putStrLn $ "oldChop8: " <> show (oldChop8 bits)
+    putStrLn $ "chop8: " <> show (chop8 bits)
 
     -- parity bit function
-    putStrLn $ "parityBit [1,0,0,1]: " ++ show (parityBit [1, 0, 0, 1])
-    putStrLn $ "parityBit [1,1,0,1]: " ++ show (parityBit [1, 1, 0, 1])
+    putStrLn $ "parityBit [1,0,0,1]: " <> show (parityBit [1, 0, 0, 1])
+    putStrLn $ "parityBit [1,1,0,1]: " <> show (parityBit [1, 1, 0, 1])
 
     -- encode function
-    putStrLn $ "encode `abc`: " ++ show (encode "abc")
+    putStrLn $ "encode `abc`: " <> show (encode "abc")
 
     -- decode function
     let bits = [1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0]
-    putStrLn $ "decode [...]: " ++ show (decode bits)
+    putStrLn $ "decode [...]: " <> show (decode bits)
 
     -- transmit function
     let msg = "higher-order functions are easy"
-    putStrLn $ "transmit `" ++ msg ++ "`: " ++ transmit msg
+    putStrLn $ "transmit `" <> msg <> "`: " <> transmit msg
 
     -- custom map function
     let numbers5 = [1, 2, 3, 4, 5, 6]
-    putStrLn $ "map odd [1,2,3,4,5,6]: " ++ show (map odd numbers)
-    putStrLn $ "customMap odd [1,2,3,4,5,6]: " ++ show (customMap odd numbers)
+    putStrLn $ "map odd [1,2,3,4,5,6]: " <> show (map odd numbers)
+    putStrLn $ "customMap odd [1,2,3,4,5,6]: " <> show (customMap odd numbers)
 
     -- custom iterate function
     let result1 = take 10 (defaultIterate (+ 1) 0)
     let result2 = take 10 (customIterate (+ 1) 0)
-    putStrLn $ "defaultIterate (+1) 0: " ++ show result1
-    putStrLn $ "customIterate (+1) 0: " ++ show result2
+    putStrLn $ "defaultIterate (+1) 0: " <> show result1
+    putStrLn $ "customIterate (+1) 0: " <> show result2
 
     -- alt map function
     let result3 = altMap (+ 10) (+ 100) [0, 1, 2, 3, 4]
-    putStrLn $ "altMap (+10) (+100) [0,1,2,3,4]: " ++ show result3
+    putStrLn $ "altMap (+10) (+100) [0,1,2,3,4]: " <> show result3
 
     -- luhn function
-    putStrLn $ "luhn [1,7,8,4]: " ++ show (luhn [1, 7, 8, 4])
-    putStrLn $ "luhn [4,7,8,3]: " ++ show (luhn [4, 7, 8, 3])
+    putStrLn $ "luhn [1,7,8,4]: " <> show (luhn [1, 7, 8, 4])
+    putStrLn $ "luhn [4,7,8,3]: " <> show (luhn [4, 7, 8, 3])

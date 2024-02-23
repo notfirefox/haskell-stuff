@@ -24,35 +24,35 @@ init2 (x : xs) = x : init2 xs
 main = do
     -- list of numbers
     let numbers :: [Int] = [1, 2, 3, 4, 5]
-    putStrLn $ "List of numbers: " ++ show numbers
+    putStrLn $ "List of numbers: " <> show numbers
 
     -- head of list
-    putStrLn $ "Head: " ++ show (head numbers)
+    putStrLn $ "Head: " <> show (head numbers)
 
     -- tail of list
-    putStrLn $ "Tail: " ++ show (tail numbers)
+    putStrLn $ "Tail: " <> show (tail numbers)
 
     -- length of a list
-    putStrLn $ "Length: " ++ show (length numbers)
+    putStrLn $ "Length: " <> show (length numbers)
 
     -- average of the list of numbers
-    putStrLn $ "Average: " ++ show (average numbers)
+    putStrLn $ "Average: " <> show (average numbers)
 
     -- element at index of list
-    putStrLn $ "Element at index 2: " ++ show (numbers !! 2)
+    putStrLn $ "Element at index 2: " <> show (numbers !! 2)
 
     -- take the first three elements
-    putStrLn $ "Take the first three elements: " ++ show (take 3 numbers)
+    putStrLn $ "Take the first three elements: " <> show (take 3 numbers)
 
     -- remove the first three elements
-    putStrLn $ "Drop the first three elements: " ++ show (drop 3 numbers)
+    putStrLn $ "Drop the first three elements: " <> show (drop 3 numbers)
 
     -- reverse the list
-    putStrLn $ "Reverse the list: " ++ show (reverse numbers)
+    putStrLn $ "Reverse the list: " <> show (reverse numbers)
 
     -- append another list
     let otherNumbers = [6, 7, 8, 9, 10]
-    putStrLn $ "Append another list: " ++ show (numbers ++ otherNumbers)
+    putStrLn $ "Append another list: " <> show (numbers <> otherNumbers)
 
     -- last element
     putStrLn "Get the last element of a list:"

@@ -19,7 +19,7 @@ doubleNum a = 2 * a
 -- quicksort
 qsort :: [Integer] -> [Integer]
 qsort [] = []
-qsort (x : xs) = qsort smaller ++ [x] ++ qsort larger
+qsort (x : xs) = qsort smaller <> [x] <> qsort larger
   where
     smaller = [a | a <- xs, a <= x]
     larger = [b | b <- xs, b > x]
@@ -27,7 +27,7 @@ qsort (x : xs) = qsort smaller ++ [x] ++ qsort larger
 -- quicksort but in reverse order
 qsortrev :: [Integer] -> [Integer]
 qsortrev [] = []
-qsortrev (x : xs) = qsortrev larger ++ [x] ++ qsortrev smaller
+qsortrev (x : xs) = qsortrev larger <> [x] <> qsortrev smaller
   where
     smaller = [a | a <- xs, a <= x]
     larger = [b | b <- xs, b > x]
@@ -35,7 +35,7 @@ qsortrev (x : xs) = qsortrev larger ++ [x] ++ qsortrev smaller
 -- quicksort but disposes duplicate entries
 qsortuniq :: [Integer] -> [Integer]
 qsortuniq [] = []
-qsortuniq (x : xs) = qsortuniq smaller ++ [x] ++ qsortuniq larger
+qsortuniq (x : xs) = qsortuniq smaller <> [x] <> qsortuniq larger
   where
     smaller = [a | a <- xs, a < x]
     larger = [b | b <- xs, b > x]
@@ -43,33 +43,33 @@ qsortuniq (x : xs) = qsortuniq smaller ++ [x] ++ qsortuniq larger
 main = do
     -- faculty of 5
     let facResult = fac 5
-    putStrLn $ "Faculty of 5: " ++ show facResult
+    putStrLn $ "Faculty of 5: " <> show facResult
 
     -- sum of a list of numbers
     let numbers = [1, 2, 3, 4, 5]
     let sumResult = sumList numbers
-    putStrLn $ "Sum of the list [1 2,3,4,5]: " ++ show sumResult
+    putStrLn $ "Sum of the list [1 2,3,4,5]: " <> show sumResult
 
     -- product of a list of numbers
     let otherNumbers = [2, 3, 4]
     let productResult = productList otherNumbers
-    putStrLn $ "Product of the list [2,3,4]: " ++ show productResult
+    putStrLn $ "Product of the list [2,3,4]: " <> show productResult
 
     -- double a number
     let x = 16
     let doubleResult = doubleNum x
-    putStrLn $ "Double of 16: " ++ show doubleResult
+    putStrLn $ "Double of 16: " <> show doubleResult
 
     -- sort a list of numbers
     let unsorted = [3, 5, 1, 4, 2]
     let sorted = qsort unsorted
-    putStrLn $ "Sorted List: " ++ show sorted
+    putStrLn $ "Sorted List: " <> show sorted
 
     -- sort a list in reversed order
     let sortedReverse = qsortrev unsorted
-    putStrLn $ "Reverse Sorted List: " ++ show sortedReverse
+    putStrLn $ "Reverse Sorted List: " <> show sortedReverse
 
     -- sort a list of numbers
     let anotherUnsorted = [2, 2, 3, 1, 1]
     let otherSorted = qsortuniq anotherUnsorted
-    putStrLn $ "Unique sorted List: " ++ show otherSorted
+    putStrLn $ "Unique sorted List: " <> show otherSorted
